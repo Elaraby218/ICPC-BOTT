@@ -64,7 +64,7 @@ app.post('/admin/reply', (req, res) => {
     }
 });
 
-const port = process.env.PORT || 3000; // Specify a default port if not set
+const port = process.env.PORT; // Specify a default port if not set
 app.listen(port, () => {
     console.log(`Admin panel running at http://localhost:${port}/admin`);
 });
