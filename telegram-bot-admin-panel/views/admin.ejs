@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <h2>Messages from Users</h2>
+    <ul>
+        <% userMessages.forEach((message, index) => { %>
+            <li>
+                <strong>Name:</strong> <%= message.name %> <br>
+                <strong>Batch Number:</strong> <%= message.batchNumber %> <br>
+                <strong>Reason:</strong> <%= message.reason %> <br>
+                <strong>Admin Reply:</strong> <%= message.reply ? message.reply : 'No reply yet.' %> <br>
+                <em>Received at: <%= message.timestamp %></em>
+                <form action="/admin/reply" method="POST">
+                    <input type="hidden" name="userId" value="<%= index %>">
+                    <textarea name="reply" required placeholder="Type your reply here..."></textarea>
+                    <button type="submit">Send Reply</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
