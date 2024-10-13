@@ -34,6 +34,9 @@ app.post('/admin/log', (req, res) => {
     res.status(200).send({ status: 'success' });
 });
 
+app.get("/", (req, res) => {
+    res.send("Welcome to the ICPC Training Management System!");
+});
 
 app.post('/admin/reply', (req, res) => {
     const userId = req.body.userId; 
