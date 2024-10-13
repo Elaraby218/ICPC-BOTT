@@ -64,7 +64,7 @@ app.post('/admin/reply', (req, res) => {
 });
 
 
-const port = 3000;
+const port = process.env.PORT;
 app.listen(port, () => {
     console.log(`Admin panel running at http://localhost:${port}/admin`);
 });
